@@ -28,7 +28,10 @@ function addWorkout(){
     }
     const time = hour + ":" + minute + ":" + second + " "+ampm;
  
-    workouts.push([name,rep,weight, date, time]);
+    workouts.push([date, time,name,rep,weight]);
+    document.querySelector('.name').value = '';
+    document.querySelector('.rep').value = '';
+    document.querySelector('.weight').value = '';
     updateWorkout();
 }
 
@@ -38,11 +41,14 @@ function updateWorkout(){
     for (let i = workouts.length-1; i >=0; i--) {
     const workoutObject = workouts[i];
     const html = `
+      <div class="wrap"> 
         <div>${workoutObject[0]}</div>
         <div>${workoutObject[1]}</div>
         <div>${workoutObject[2]}</div>
-        <div>${workoutObject[3]}</div>
-        <div>${workoutObject[4]}</div>
+        <div>${workoutObject[3]} reps</div>
+        <div>${workoutObject[4]} pounds</div>
+        <button class="delete_button">X</button>
+      </div>
     `;
     workoutHTML += html;
     }
@@ -51,4 +57,19 @@ function updateWorkout(){
     .innerHTML = workoutHTML;
 
     localStorage.setItem('workouts',JSON.stringify(workouts));
+    
+    //static waiting for listen. didnt work before because it was outside of updateWorkout
+    document.querySelectorAll('.delete_button')
+    .forEach((deleteButton, index) => {
+      deleteButton.addEventListener('click', () => {
+        workouts.splice(workouts.length-1-index, 1);
+        updateWorkout();
+      });
+    });
 }
+
+
+
+
+
+
