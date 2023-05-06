@@ -123,7 +123,10 @@ body{
     height: 0px;
 }
 .import_button{
-   
+   padding-bottom: 5px;
+   padding-right: 5px;
+   margin-bottom: 5px;
+   margin-right: 5px;
 }
 .export_button{
     margin-bottom: 5px;
