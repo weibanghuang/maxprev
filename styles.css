@@ -104,23 +104,27 @@ body{
     display: grid;
     grid-template-columns: 1fr 1fr;
 }
-.import_button, .export_button, .stats_button{
+.import_button, .export_button, .stats_button, .input_button{
     padding: 10px;
     color: var(--line-color);
     background-color: var(--main-color);
-    font-family: Roboto;
     border-color: var(--line-color);
     border-width: 1px;
     border-style: solid;
+    font-family: Roboto;
     display: flex;
-    font-size:small;
+    font-size: small;
 }
-
+.input_button{
+    display:none;
+}
 .import_button{
+    
     margin-right: 5px;
 }
 .export_button{
     margin-right: 5px;
+    
 }
 
 
@@ -162,5 +166,6 @@ body{
     font-size:large;
     width: 30px;
     height: 30px;
+    text-align: center; 
 }
 
