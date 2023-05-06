@@ -106,7 +106,7 @@ body{
     grid-template-columns: 1fr 1fr;
 }
 .export_button, .stats_button, .input_button, .import_button, .danger_button{
-    padding: 10px;
+    padding:5px;
     color: var(--line-color);
     background-color: var(--main-color);
     border-color: var(--line-color);
