@@ -96,8 +96,8 @@ body{
 .button_wrap {
     margin-top: 5px;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr .5fr;
-    grid-auto-rows: 1fr;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows:1fr,1fr;
 }
 
 .button_wrap_p2 {
@@ -115,7 +115,6 @@ body{
     font-family: Roboto;
     display: flex;
     font-size: 16px;
-    vertical-align:middle;
 }
 
 .danger_button{
@@ -130,9 +129,10 @@ body{
 }
 .import_button{
     margin-right: 5px;
+    margin-bottom: 5px;
 }
 .export_button{
-    margin-right: 5px;
+    margin-bottom: 5px;
 }
 .stats_button{
     margin-right: 5px;
