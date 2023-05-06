@@ -121,12 +121,10 @@ body{
     padding:initial;
     display: none;
     height: 0px;
-    box-sizing: border-box;
 }
 .import_button{
    margin-bottom: 5px;
    margin-right: 5px;
-   box-sizing: border-box;
 }
 .export_button{
     margin-bottom: 5px;
