@@ -162,10 +162,11 @@ function toggle_data(){
     document.querySelector('.hamburger_button').innerHTML = '&equiv;';
     document.querySelector('.pop_up').innerHTML = "";
   }else{
+    //<label for="fileInput" class="input_button">Import Data</label>
     const popup = `
       <div class="button_wrap">
+
         <input type="file" name="uploadfile" id="fileInput" accept=".csv" class = "input_button"/>
-        <label for="fileInput" class="import_button">Import Data</label>
         <button class="export_button">Export Data</button>
         <button class="stats_button">View Max Prev</button>
       </div>
