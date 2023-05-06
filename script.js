@@ -164,7 +164,7 @@ function toggle_data(){
   }else{
     const popup = `
       <div class="button_wrap">
-        <input type="file" name="uploadfile" id="fileInput" accept=".csv" style="display:none;"/>
+        <input type="file" name="uploadfile" id="fileInput" accept=".csv" class = "input_button"/>
         <label for="fileInput" class="import_button">Import Data</label>
         <button class="export_button">Export Data</button>
         <button class="stats_button">View Max Prev</button>
