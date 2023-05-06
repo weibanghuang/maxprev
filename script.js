@@ -34,9 +34,9 @@ function toTitleCase(str) {
 }
 
 function addWorkout(){
-    const name = document.querySelector('.name').value;
-    const rep = document.querySelector('.rep').value;
-    const weight = document.querySelector('.weight').value;
+    const name = document.querySelector('.name').value.trim();
+    const rep = document.querySelector('.rep').value.trim();
+    const weight = document.querySelector('.weight').value.trim();
     const today = new Date();
 
     //yyyymmdd complete
