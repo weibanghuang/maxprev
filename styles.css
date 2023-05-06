@@ -117,13 +117,8 @@ body{
     font-size: 16px;
 }
 
-.danger_button{
-    color: var(--line-color);
-    background-color:#E34234;
-    border-color: var(--line-color);
-}
-
 .input_button{
+    padding:initial;
     display: none;
     height: 0px;
 }
@@ -137,6 +132,13 @@ body{
 .stats_button{
     margin-right: 5px;
 }
+
+.danger_button{
+    color: var(--line-color);
+    background-color:#E34234;
+    border-color: var(--line-color);
+}
+
 
 
 .workout_list{
