@@ -4,17 +4,27 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Workout</title>
+    <title>MaxPrev</title>
     <link rel="stylesheet" type="text/css" href="styles.css" /> 
     <link rel="icon" href="logo.png">
 </head>
 <body>
     <div class="wtf">
+        <button class="hamburger_button">&equiv;</button>
+        <div class="pop_up"></div>
+    </div>
+    <div class = "render_stats"></div>
+    <div class="wtf">
         <input class = "name" type="text" placeholder="Workout Name">
         <input class ="rep" type="text" placeholder="Repetitions">
         <input class ="weight" type="text" placeholder="Pounds">
-        <button class="workout_button">Submit</button>
+        <div class = "button_wrap_p2">
+            <button class="workout_button">Submit</button>
+            <button class="clear_button">Clear</button>
+        </div>
+        
     </div>
+    <div class = "today">Only Showing Today's</div>
     <div class = "workout_list"></div>
     
     <script src="script.js"></script>

@@ -1,7 +1,12 @@
+:root {
+    --main-color: #141414;
+    --line-color: #F6F6F6;
+  }
+  
 body{ 
-    background-color: #141414;
+    background-color: var(--main-color);
     font-family:Roboto;
-    color: #F6F6F6;
+    color: var(--line-color);
 }
 
 @font-face {
@@ -10,60 +15,134 @@ body{
 }
 
 .wtf{
-    border-color: #F6F6F6;
+    border-color: var(--line-color);
     border-width: 1px;
     padding: 5px;
     border-style: solid;
     margin-bottom: 5px;
 }
-.name,.rep,.weight{
+.today{
+    font-size: small;
+    margin-bottom: 5px;
+}
+.wtf2{
+    border-color: var(--line-color);
+    border-width: 1px;
+    border-style: solid;
+    margin-bottom: 5px;
+    padding-left: 5px;
+    padding-top: 5px;
+    padding-right: 5px;
+}
+
+.name,.rep{
     padding: 10px;
-    color: #F6F6F6;
-    background-color: #141414;
+    color: var(--line-color);
+    background-color: var(--main-color);
     font-family: Roboto;
-    border-color: #F6F6F6;
+    border-color: var(--line-color);
     border-width: 1px;
     border-style: solid;
     border-radius: 0px;
     margin-bottom: 5px;
     box-sizing: border-box;
-    width:100%
+    width:100%;
+    font-size:small;
+}
+
+.weight{
+    padding: 10px;
+    color: var(--line-color);
+    background-color: var(--main-color);
+    font-family: Roboto;
+    border-color: var(--line-color);
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 0px;
+    box-sizing: border-box;
+    width:100%;
+    font-size:small;
 }
 
 ::placeholder{
-    color: #F6F6F6;
+    color: var(--line-color);
 }
 
-.workout_button, .export_button{
+.workout_button{
     padding: 10px;
-    color: #F6F6F6;
-    background-color: #141414;
+    color: var(--line-color);
+    background-color: var(--main-color);
     font-family: Roboto;
-    border-color: #F6F6F6;
+    border-color: var(--line-color);
     border-width: 1px;
     border-style: solid;
     display: flex;
-    width: 100%;
+    margin-right: 5px;
+    font-size:small;
 }
 
+.clear_button{
+    padding: 10px;
+    color: var(--line-color);
+    background-color: var(--main-color);
+    font-family: Roboto;
+    border-color: var(--line-color);
+    border-width: 1px;
+    border-style: solid;
+    display: flex;
+    font-size:small;
+}
+
+.button_wrap {
+    margin-top: 5px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.button_wrap_p2 {
+    margin-top: 5px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+.import_button, .export_button, .stats_button{
+    padding: 10px;
+    color: var(--line-color);
+    background-color: var(--main-color);
+    font-family: Roboto;
+    border-color: var(--line-color);
+    border-width: 1px;
+    border-style: solid;
+    display: flex;
+    font-size:small;
+}
+
+.import_button{
+    margin-right: 5px;
+}
+.export_button{
+    margin-right: 5px;
+}
+
+
 .workout_list{
-    padding-top: 5px;
+    padding-bottom: 5px;
 
 }
 .wrap{
-    border-color: #F6F6F6;
+    border-color: var(--line-color);
     border-width: 1px;
     padding: 5px;
     border-style: solid;
     margin-bottom: 5px;
     position: relative;
+    font-size: small;
 }
 
 .delete_button{
-    color: #F6F6F6;
-    background-color: #141414;
+    color: var(--line-color);
+    background-color: var(--main-color);
     font-family: Roboto;
-    border-color: #F6F6F6;
+    border-color: var(--line-color);
     border-width: 1px;
     border-style: solid;
     width: 30px;
@@ -72,3 +151,16 @@ body{
     top: 5px;
     right: 5px;
 }
+
+.hamburger_button{
+    color: var(--line-color);
+    background-color: var(--main-color);
+    border-color: var(--line-color);
+    border-width: 1px;
+    border-style: solid;
+    font-family: Roboto;
+    font-size:large;
+    width: 30px;
+    height: 30px;
+}
+
