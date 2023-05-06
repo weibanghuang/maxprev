@@ -96,7 +96,7 @@ body{
 .button_wrap {
     margin-top: 5px;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr .2fr;
     grid-auto-rows: 1fr;
 }
 
@@ -105,7 +105,7 @@ body{
     display: grid;
     grid-template-columns: 1fr 1fr;
 }
-.export_button, .stats_button, .input_button{
+.export_button, .stats_button, .input_button, .import_button, .danger_button{
     padding: 10px;
     color: var(--line-color);
     background-color: var(--main-color);
@@ -117,26 +117,25 @@ body{
     font-size: 16px;
 }
 
-.input[type=file]{
-    padding: 10px;
+.danger_button{
     color: var(--line-color);
-    background-color: var(--main-color);
+    background-color:firebrick;
     border-color: var(--line-color);
-    border-width: 1px;
-    border-style: solid;
-    font-family: Roboto;
-    display: flex;
-    font-size: 16px;
+    margin-right: 5px;
 }
+
 .input_button{
+    display: none;
+    height: 0px;
+}
+.import_button{
     margin-right: 5px;
 }
-/* .import_button{
-    margin-right: 5px;
-} */
 .export_button{
     margin-right: 5px;
-    
+}
+.stats_button{
+    margin-right: 5px;
 }
 
 
