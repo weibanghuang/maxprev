@@ -12,6 +12,13 @@ document.querySelector('.clear_button')
   clearWorkout();
   });
 
+function delete_all_data(){
+  if (confirm("Delete all local data?")){
+    workouts = [];
+    maxPrev = [];
+    updateWorkout();
+  }
+}
 
 function double_format(a){
     if (a.toString().length == 1) {
@@ -142,15 +149,20 @@ function exists(arr, search) {
 function view_stats(){
   if (document.querySelector('.render_stats').innerHTML==""){
     let maxPrevHTML = "";
-    for (i in maxPrev) {
-      const maxPrevHTMLpart = `
-        <div class = "wrap">
-          <div>${maxPrev[i][0]+" Max"}</div>
-          <div>${maxPrev[i][1]+" Pounds"}</div>
-        </div>
-      `;
-      maxPrevHTML += maxPrevHTMLpart+"";
-    } 
+    if (maxPrev.length==0){
+      maxPrevHTML = '<div style="margin-bottom:5px; font-size: 16px;">No Data Yet</div>'
+    }else{
+      for (i in maxPrev) {
+        const maxPrevHTMLpart = `
+          <div class = "wrap">
+            <div>${maxPrev[i][0]+" Max"}</div>
+            <div>${maxPrev[i][1]+" Pounds"}</div>
+          </div>
+        `;
+        maxPrevHTML += maxPrevHTMLpart+"";
+      } 
+    }
+    
     document.querySelector('.render_stats').innerHTML="<div class=\"wtf2\">"+maxPrevHTML+"</div>";
   }else{
     document.querySelector('.render_stats').innerHTML='';
@@ -169,7 +181,7 @@ function toggle_data(){
         <label for="fileInput" class="import_button">Import Data</label>
         <button class="export_button">Export Data</button>
         <button class="stats_button">View Max Prev</button>
-        <button class="danger_button">Delete All Data</button>
+        <button class="danger_button">Delete</button>
       </div>
     `;
     document.querySelector('.pop_up').innerHTML = popup;
@@ -196,6 +208,10 @@ function toggle_data(){
     .addEventListener('click', () => {
       calculate_maxPrev();
       view_stats();
+      });
+    document.querySelector('.danger_button')
+      .addEventListener('click', () => {
+        delete_all_data();
       });
   }
 }

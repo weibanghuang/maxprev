@@ -96,7 +96,7 @@ body{
 .button_wrap {
     margin-top: 5px;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr .2fr;
+    grid-template-columns: 1fr 1fr 1fr .5fr;
     grid-auto-rows: 1fr;
 }
 
@@ -115,13 +115,13 @@ body{
     font-family: Roboto;
     display: flex;
     font-size: 16px;
+    vertical-align:middle;
 }
 
 .danger_button{
     color: var(--line-color);
-    background-color:firebrick;
+    background-color:#E34234;
     border-color: var(--line-color);
-    margin-right: 5px;
 }
 
 .input_button{
