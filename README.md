@@ -2,5 +2,5 @@
 
 https://weibanghuang.github.io/maxprev/
 
-sample [workout2.csv] file. 
+Sample file provided: Workout 2.csv. 
 Download the csv file, and import into the website. 
