@@ -133,7 +133,9 @@ function export_data(){
 function calculate_maxPrev(){
   maxPrev = [];
   let workouts_copy = [...workouts];
-  workouts_copy.sort((a, b) => (a[4] - b[4]));
+
+  //change from a[4]-b[4]. from sort by weight to sort by date. 
+  workouts_copy.sort((a, b) => ((b[0]+''+b[1])-(a[0]+''+a[1])));
   for (let i = workouts_copy.length - 1; i >= 0; i--) {
     if (!exists(maxPrev,workouts_copy[i][2])){
       maxPrev.push([workouts_copy[i][2],workouts_copy[i][4]]);
