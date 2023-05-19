@@ -19,9 +19,9 @@
     </div>
     <div class = "render_stats"></div>
     <div class="wtf">
-        <input class = "name" type="text" placeholder="Workout Name">
-        <input class ="rep" type="text" placeholder="Repetitions">
-        <input class ="weight" type="text" placeholder="Pounds">
+        <input id = "local_name" class = "name" type="text" placeholder="Workout Name" onkeyup='saveValue(this);'>
+        <input id = "local_rep" class ="rep" type="text" placeholder="Repetitions" onkeyup='saveValue(this);'>
+        <input id = "local_weight" class ="weight" type="text" placeholder="Pounds" onkeyup='saveValue(this);'>
         <div class = "button_wrap_p2">
             <button class="workout_button">Submit</button>
             <button class="clear_button">Clear</button>

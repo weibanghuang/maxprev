@@ -36,7 +36,24 @@ body{
     padding-left: 5px;
     padding-top: 5px;
     padding-right: 5px;
+    max-height: 300px;
+    overflow: auto;
 }
+
+/* width */
+::-webkit-scrollbar {
+    width: 5px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: var(--main-color); 
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: var(--line-color); 
+  }
 
 .name,.rep{
     padding: 10px;
@@ -156,6 +173,7 @@ body{
     margin-bottom: 5px;
     position: relative;
     font-size: 16px;
+
 }
 
 .delete_button{

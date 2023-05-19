@@ -1,6 +1,19 @@
 let workouts = JSON.parse(localStorage.getItem("workouts")) || [];
 let maxPrev = [];
+let local_name = JSON.parse(localStorage.getItem("local_name")) || "";
+let local_rep = JSON.parse(localStorage.getItem("local_rep")) || "";
+let local_weight = JSON.parse(localStorage.getItem("local_weight")) || "";
 updateWorkout();
+document.getElementById("local_name").value = local_name;  
+document.getElementById("local_rep").value = local_rep;  
+document.getElementById("local_weight").value = local_weight;   
+
+function saveValue(e){
+    const name = e.id;  
+    const val = e.value; 
+    localStorage.setItem(name, JSON.stringify(val));
+  }
+
 
 document.querySelector('.workout_button')
   .addEventListener('click', () => {
@@ -138,7 +151,7 @@ function calculate_maxPrev(){
   workouts_copy.sort((a, b) => ((b[0]+''+b[1])-(a[0]+''+a[1])));
   for (let i = workouts_copy.length - 1; i >= 0; i--) {
     if (!exists(maxPrev,workouts_copy[i][2])){
-      maxPrev.push([workouts_copy[i][2],workouts_copy[i][4]]);
+      maxPrev.push([workouts_copy[i][2],workouts_copy[i][3],workouts_copy[i][4]]);
     }
   }
   maxPrev.sort((a, b) => (a[0].localeCompare(b[0])));
@@ -152,20 +165,21 @@ function view_stats(){
   if (document.querySelector('.render_stats').innerHTML==""){
     let maxPrevHTML = "";
     if (maxPrev.length==0){
-      maxPrevHTML = '<div style="margin-bottom:5px; font-size: 16px;">No Data Yet</div>'
+      maxPrevHTML = '<div style="margin-bottom:5px; font-size: 16px;">No Data Yet</div>';
     }else{
       for (i in maxPrev) {
         const maxPrevHTMLpart = `
           <div class = "wrap">
-            <div>${maxPrev[i][0]+" Max"}</div>
-            <div>${maxPrev[i][1]+" Pounds"}</div>
+            <div>${maxPrev[i][0]}</div>
+            <div>${maxPrev[i][1]+" Reps"}</div>
+            <div>${maxPrev[i][2]+" Pounds"}</div>
           </div>
         `;
         maxPrevHTML += maxPrevHTMLpart+"";
       } 
     }
-    
     document.querySelector('.render_stats').innerHTML="<div class=\"wtf2\">"+maxPrevHTML+"</div>";
+    
   }else{
     document.querySelector('.render_stats').innerHTML='';
   }
@@ -222,6 +236,7 @@ document.querySelector('.hamburger_button')
   .addEventListener('click', () => {
     toggle_data();
   });
+
 
 
 
