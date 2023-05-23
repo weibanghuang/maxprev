@@ -14,7 +14,11 @@ function saveValue(e){
     localStorage.setItem(name, JSON.stringify(val));
   }
 
-
+function saveLocalValue(a,b,c){
+  localStorage.setItem("local_name", JSON.stringify(a));
+  localStorage.setItem("local_rep", JSON.stringify(b));
+  localStorage.setItem("local_weight", JSON.stringify(c));
+}
 document.querySelector('.workout_button')
   .addEventListener('click', () => {
     addWorkout();
@@ -23,6 +27,7 @@ document.querySelector('.workout_button')
 document.querySelector('.clear_button')
 .addEventListener('click', () => {
   clearWorkout();
+  
   });
 
 function delete_all_data(){
@@ -71,9 +76,10 @@ function addWorkout(){
 }
 
 function clearWorkout(){
-  document.querySelector('.name').value = '';
+  document.querySelector('.name').value =  '';
   document.querySelector('.rep').value = '';
   document.querySelector('.weight').value = '';
+  saveLocalValue("","","");
 }
 
 function updateWorkout(){
@@ -123,11 +129,11 @@ function updateWorkout(){
     
     //static waiting for listen. didnt work before because it was outside of updateWorkout
     document.querySelectorAll('.delete_button')
-    .forEach((deleteButton, index) => {
-      deleteButton.addEventListener('click', () => {
-        workouts.splice(workouts.length-1-index, 1);
-        updateWorkout();
-      });
+      .forEach((deleteButton, index) => {
+        deleteButton.addEventListener('click', () => {
+          workouts.splice(workouts.length-1-index, 1);
+          updateWorkout();
+        });
     });
 }
 
@@ -146,10 +152,9 @@ function export_data(){
 function calculate_maxPrev(){
   maxPrev = [];
   let workouts_copy = [...workouts];
-
   //change from a[4]-b[4]. from sort by weight to sort by date. 
   workouts_copy.sort((a, b) => ((b[0]+''+b[1])-(a[0]+''+a[1])));
-  for (let i = workouts_copy.length - 1; i >= 0; i--) {
+  for (let i = 0; i <workouts_copy.length; i++) {
     if (!exists(maxPrev,workouts_copy[i][2])){
       maxPrev.push([workouts_copy[i][2],workouts_copy[i][3],workouts_copy[i][4]]);
     }
@@ -166,19 +171,39 @@ function view_stats(){
     let maxPrevHTML = "";
     if (maxPrev.length==0){
       maxPrevHTML = '<div style="margin-bottom:5px; font-size: 16px;">No Data Yet</div>';
+      document.querySelector('.render_stats').innerHTML="<div class=\"wtf2\">"+maxPrevHTML+"</div>";
     }else{
       for (i in maxPrev) {
         const maxPrevHTMLpart = `
-          <div class = "wrap">
+          <div id ="wrap${i}" class = "wrap">
             <div>${maxPrev[i][0]}</div>
             <div>${maxPrev[i][1]+" Reps"}</div>
             <div>${maxPrev[i][2]+" Pounds"}</div>
+            <button class="duplicate_button">D</button>
           </div>
+
         `;
         maxPrevHTML += maxPrevHTMLpart+"";
-      } 
+      }
+      document.querySelector('.render_stats').innerHTML="<div class=\"wtf2\">"+maxPrevHTML+"</div>";
+      document.querySelectorAll('.duplicate_button')
+      .forEach((duplicateButton, index) => {
+        duplicateButton.addEventListener('click', () => {
+          const dup_name = document.getElementById("wrap"+index).children[0].innerHTML;
+          const dup_rep = document.getElementById("wrap"+index).children[1].innerHTML;
+          const dup_weight = document.getElementById("wrap"+index).children[2].innerHTML;
+          document.querySelector('.name').value = dup_name;
+          document.querySelector('.rep').value = dup_rep.substring(0,dup_rep.length-5);
+          document.querySelector('.weight').value = dup_weight.substring(0,dup_weight.length-7);
+          saveLocalValue(
+            dup_name,
+            dup_rep.substring(0,dup_rep.length-5),
+            dup_weight.substring(0,dup_weight.length-7)
+          );
+        });
+      }); 
     }
-    document.querySelector('.render_stats').innerHTML="<div class=\"wtf2\">"+maxPrevHTML+"</div>";
+    
     
   }else{
     document.querySelector('.render_stats').innerHTML='';
@@ -187,7 +212,7 @@ function view_stats(){
 
 function toggle_data(){
   if (document.querySelector('.hamburger_button').innerHTML== 'X'){
-    document.querySelector('.hamburger_button').innerHTML = '&equiv;';
+    document.querySelector('.hamburger_button').innerHTML = 'H';
     document.querySelector('.pop_up').innerHTML = "";
   }else{
     //<label for="fileInput" class="input_button">Import Data</label>
