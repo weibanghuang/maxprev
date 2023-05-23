@@ -17,10 +17,12 @@ body{
     font-family: Cloister;
 }
 .backwall{
-    background-image: url("angel.png");
+    background-image: url("background.png");
     box-sizing: border-box;
-    min-height: 100%;
-    min-width:100%;
+    max-width: 100%;
+    max-height: 100vh;
+    min-height: 100vh;
+    min-width: 100%;
     padding: 5px;
     margin: 0;
     background-size:     cover;                      /* <------ */
@@ -212,6 +214,7 @@ body{
     position: absolute;
     top: 5px;
     right: 5px;
+    font-family: Cloister;
 }
 
 .delete_button{
@@ -226,6 +229,7 @@ body{
     position: absolute;
     top: 5px;
     right: 5px;
+    font-family: Cloister;
 }
 
 .hamburger_button{
@@ -241,6 +245,7 @@ body{
     padding: 0px;
     text-align: center; 
     vertical-align:middle;
+    font-family: Cloister;
 }
 
 .logo_bar{
